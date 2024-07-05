@@ -57,10 +57,8 @@ public class FileLoader implements FileInterface{
             IllegalArgumentException, FileNotFoundException {
 
         char[][] mazeMap;
-        try {
-            File file = new File(filename);
-            Scanner scanner = new Scanner(file);
-
+        File file = new File(filename);
+        try ( Scanner scanner = new Scanner(file);){
             // Reads the number of rows and columns from the first line of the file
             int rowsNum = scanner.nextInt();
             int colsNum = scanner.nextInt();
